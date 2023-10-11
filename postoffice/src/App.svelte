@@ -15,7 +15,7 @@
   let reloadActive = true
 
   onMount(async function () {
-    const response = await fetch(`https://postmaster.junk.boats/get/mail?address=${receivingEmail}`);
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
     const data = await response.json();
     emails = data.mails;
     stats = data.stats;
@@ -38,7 +38,7 @@
   }
 
   async function manualReload() {
-    const response = await fetch(`https://postmaster.junk.boats/get/mail?address=${receivingEmail}`);
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
     const data = await response.json();
     emails = data.mails;
     stats = data.stats;
@@ -49,7 +49,7 @@
       reloadActive = false
       clearInterval(intervalID);
     }
-    const response = await fetch(`https://postmaster.junk.boats/get/mail?address=${receivingEmail}`);
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
     const data = await response.json();
     emails = data.mails;
     stats = data.stats;
@@ -70,11 +70,11 @@
             <h1 class="fw-light" style="margin-bottom: 16px; font-size: 72px;">
               ♻️
             </h1>
-            <h1 class="fw-semibold" style="font-family: 'Inter Tight', sans-serif; color: rgb(33, 37, 41); margin-bottom: 0px;"><span style="color: rgb(90, 179, 75);">junk</span>.boats</h1>
+            <h1 class="fw-semibold" style="font-family: 'Inter Tight', sans-serif; color: rgb(33, 37, 41); margin-bottom: 0px;"><span style="color: rgb(90, 179, 75);">OnXbox</span> Mail</h1>
             <p style="margin-bottom: 32px;">
-              <span style="color: rgb(153, 153, 153);">Yet another temporary email generator. </span><br />
+              <span style="color: rgb(153, 153, 153);">Free email, no ads! </span><br />
               <br />
-              But this time open source, ad-free, and privacy-friendly. Generate a temporary email below and receive emails.
+              Please note, we will log you in to our API before continuing.
             </p>
             <div />
             <div style="padding: 10px 30px; border: 1px solid rgb(206, 207, 208); border-radius: 10px; margin-top: 32px;">
@@ -161,7 +161,7 @@
               </li>
             </ul>
             <p class="text-start" style="margin-bottom: 0px; color: rgb(164, 164, 164); font-size: 12px; margin-top: 10px;">
-              Copyright {copyrightYear} © berrysauce · Powered by
+              Copyright {copyrightYear} © KawaiiNET · Powered by
               <span style="color: rgb(246, 102, 51);">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -64 640 640" width="1em" height="1em" fill="currentColor" style="font-size: 16px; margin-right: 3px; margin-left: 2px;">
                   <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
