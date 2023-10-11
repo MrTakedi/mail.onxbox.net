@@ -27,7 +27,7 @@
 
   async function generateEmail(reload) {
     let words = randomWords(2)
-    receivingEmail = words[0] + "." + words[1] + Math.floor(Math.random() * 1000) + "@junk.boats"
+    receivingEmail = words[0] + "." + words[1] + Math.floor(Math.random() * 1000) + "@onxbox.net"
     localStorage.setItem("receivingEmail", receivingEmail)
 
     if (reload) {
