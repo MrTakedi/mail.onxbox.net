@@ -11,7 +11,7 @@
   async function deleteEmail() {
     if (confirm("Do you really want to permanently delete this email?")) {
       let emailKey = email.recipient + "-" + email.suffix
-      const response = await fetch(`https://postmaster.junk.boats/delete/mail?key=${emailKey}`);
+      const response = await fetch(`https://postmaster.onxbox.net/delete/mail?key=${emailKey}`);
       const data = await response.json();
       
       if (data.code === 200) {
@@ -98,7 +98,8 @@
           </p>
           <div class="text-break">
             <!-- {@html email["content-html"]} -->
-            {@html email["content-plain-formatted"]}
+	<iframe srcdoc="{@html email["content-html"]}">{@html email["content-plain-formatted"]}</iframe>
+            <!-- {@html email["content-plain-formatted"]} -->
           </div>
         </div>
         <div style="padding: 5px 20px; background: #f4f4f4; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
