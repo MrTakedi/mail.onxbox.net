@@ -98,7 +98,11 @@
           </p>
           <div class="text-break">
             <!-- {@html email["content-html"]} -->
-	<iframe srcdoc="{@html email["content-html"]}">{@html email["content-plain-formatted"]}</iframe>
+	<script>
+	const HTMLemail = [];
+	HTMLemail.push('{@html email["content-html"]}');
+	</script>
+	{@html email["content-plain-formatted"]}
             <!-- {@html email["content-plain-formatted"]} -->
           </div>
         </div>
