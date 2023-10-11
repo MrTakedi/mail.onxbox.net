@@ -98,7 +98,7 @@
           </p>
           <div class="text-break">
             <!-- {@html email["content-html"]} -->
-	{@html email["content-plain-formatted"]}
+	{@html email["content-html"]}
             <!-- {@html email["content-plain-formatted"]} -->
           </div>
         </div>
