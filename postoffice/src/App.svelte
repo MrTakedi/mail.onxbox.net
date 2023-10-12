@@ -92,11 +92,12 @@
           if (result.error) {
             return alert(JSON.stringify(result, null, 2));
           }
-
+          if (localStorage.getItem("accessToken") === null)
+          {
+            localStorage.setItem("accessToken", ${result.token});
           // token can now be used to send authenticated requests against https://api.github.com
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
             headers: {
-              accept: "application/json",
               authorization: `Bearer ${result.token}`
             }
           });
@@ -105,7 +106,7 @@
           document.body.dataset.state = "signed-in";
         } catch (error) {
           alert(error);
-          location.reload();
+          //location.reload();
         }
       }
     </script>
