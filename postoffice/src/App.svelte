@@ -37,7 +37,7 @@
         else
         {
           document.location.href='https://auth.onxbox.net';
-        })
+        }}
       });
   }
   else
