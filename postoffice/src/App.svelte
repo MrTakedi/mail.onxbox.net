@@ -5,6 +5,7 @@
   import ActiveModal from './lib/ActiveModal.svelte';
   import randomWords from "random-words";
 
+  const receivingEmail = null;
   let aT = localStorage.getItem("accessToken")
   let copyrightYear = new Date().getFullYear();
   let emails = []
@@ -18,7 +19,7 @@
     jQuery.getJSON('https://graph.onxbox.co/me?access_token='+aT, function(json){
     if(json.error)
       {onXboxAuth();}else{
-      let receivingEmail = json.email;//localStorage.getItem("receivingEmail")
+      const receivingEmail = json.email;//localStorage.getItem("receivingEmail")
       };
     });
   }
