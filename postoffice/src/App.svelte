@@ -100,7 +100,7 @@
               authorization: `Bearer `+accessToken
             }
           });
-          localStorage.setItem("accessToken", ${result.token});
+          localStorage.setItem("accessToken", accessToken);
           const { login } = await getUserResponse.json();
           mylogin.textContent = login;
           document.body.dataset.state = "signed-in";
