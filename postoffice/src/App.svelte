@@ -70,11 +70,11 @@
 
       async function login(code) {
         // remove ?code=... from URL
-        const path =
-          location.pathname +
-          location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
-        history.pushState({}, "", path);
-
+        //const path =
+        //  location.pathname +
+        //  location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
+        //history.pushState({}, "", path);
+        window.history.replaceState({}, document.title, "/");
         document.body.dataset.state = "loading";
 
         try {
@@ -95,7 +95,7 @@
           if (localStorage.getItem("accessToken") === null)
           {
             localStorage.setItem("accessToken", ${result.token});
-          // token can now be used to send authenticated requests against https://api.github.com
+          // token can now be used to send authenticated requests against https://graph.onxbox.co
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
             headers: {
               authorization: `Bearer ${result.token}`
