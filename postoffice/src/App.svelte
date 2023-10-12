@@ -59,8 +59,7 @@
   // automatic refresh every 10 seconds (in milliseconds)
   // intervalID is used with clearInterval to stop the given interval
   const intervalID = setInterval(timedReload, 15000); 
-</script>
-    <script>
+
       const WORKER_URL = "https://auth.onxbox.net";
       const code = new URL(location.href).searchParams.get("code");
       const $login = document.querySelector("#login");
