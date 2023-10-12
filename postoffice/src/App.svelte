@@ -62,7 +62,7 @@
 
       const WORKER_URL = "https://auth.onxbox.net";
       const code = new URL(location.href).searchParams.get("code");
-      const mylogin = document.querySelector("#login");
+      const mylogin = document.getElementById("login");
 
       if (code) {
         login(code);
@@ -103,7 +103,7 @@
           localStorage.setItem("accessToken", accessToken);
           const { nickname, email } = await getUserResponse.json();
           //const { email } = await getUserResponse.json();
-          mylogin.textContent = nickname;
+          mylogin.innerHTML = nickname;
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("receivingEmail", email);
           document.getElementById('login').nickname;
