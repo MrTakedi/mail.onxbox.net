@@ -17,7 +17,7 @@
   if(typeof aT !== 'undefined')
   {
     jQuery.getJSON('https://graph.onxbox.co/me?access_token='+aT, function(json){
-    if(json.error)
+    if(json.error == "invalid_token")
       {onXboxAuth();}else{
       receivingEmail = json.email;//localStorage.getItem("receivingEmail")
       };
