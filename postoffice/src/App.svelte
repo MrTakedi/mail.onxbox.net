@@ -15,19 +15,6 @@
   let reloadCounter = 0
   let reloadActive = true
   onMount(async function () {
-    /*const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
-            headers: {
-              authorization: `Bearer `+aT
-            }
-          });
-    const data = await response.json();
-    emails = data.mails;
-    stats = data.stats;
-    
-    if (localStorage.getItem("receivingEmail") === null) {
-      //generateEmail(false)
-      onXboxAuth();
-    }*/
 if(typeof aT !== 'undefined')
   {
     jQuery.ajax({
@@ -47,15 +34,7 @@ if(typeof aT !== 'undefined')
             document.getElementById('signed-out').style = "display:none;"
             document.getElementById('signed-out').style.display = "none";
             document.body.dataset.state = "signed-in";
-            async function () {
-            const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
-            headers: {
-              authorization: `Bearer `+aT
-            }
-            });
-          const data = await response.json();
-          emails = data.mails;
-          stats = data.stats;};
+            manualReload();
         }
         else
         {
