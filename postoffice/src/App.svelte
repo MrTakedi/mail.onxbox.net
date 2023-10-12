@@ -60,7 +60,56 @@
   // intervalID is used with clearInterval to stop the given interval
   const intervalID = setInterval(timedReload, 15000); 
 </script>
+    <script>
+      const WORKER_URL = "https://auth.onxbox.net";
+      const code = new URL(location.href).searchParams.get("code");
+      const $login = document.querySelector("#login");
 
+      if (code) {
+        login(code);
+      }
+
+      async function login(code) {
+        // remove ?code=... from URL
+        const path =
+          location.pathname +
+          location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
+        history.pushState({}, "", path);
+
+        document.body.dataset.state = "loading";
+
+        try {
+          const response = await fetch(WORKER_URL, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({ code })
+          });
+
+          const result = await response.json();
+
+          if (result.error) {
+            return alert(JSON.stringify(result, null, 2));
+          }
+
+          // token can now be used to send authenticated requests against https://api.github.com
+          const getUserResponse = await fetch("https://graph.onxbox.co/me", {
+            headers: {
+              accept: "application/vnd.json",
+              authorization: `token ${result.token}`
+            }
+          });
+          const { login } = await getUserResponse.json();
+          $login.textContent = login;
+          document.body.dataset.state = "signed-in";
+        } catch (error) {
+          alert(error);
+          location.reload();
+        }
+      }
+    </script>
 <main>
   <section class="py-4 py-xl-5">
     <div class="container">
@@ -74,7 +123,16 @@
             <p style="margin-bottom: 32px;">
               <span style="color: rgb(153, 153, 153);">Free email, no ads! </span><br />
               <br />
-              Please note, we will log you in to our API before continuing.
+              <p id="signed-out">
+              <a href="https://auth.onxbox.net">Login</a>
+              </p>
+              <p id="signed-in">
+              Hello there, <span id="login"></span>. (<a href=".">Logout</a>)
+              </p>
+              <p id="loading">
+              Loading...
+              </p>
+
             </p>
             <div />
             <div style="padding: 10px 30px; border: 1px solid rgb(206, 207, 208); border-radius: 10px; margin-top: 32px;">
