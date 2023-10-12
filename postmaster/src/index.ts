@@ -8,7 +8,7 @@ interface Env {
 }
 
 const app = new Hono<{ Bindings: Env }>()
-const domain = "junk.boats"
+const domain = "onxbox.net"
 
 // CHANGE CORS ORIGIN LATER
 app.use("*", prettyJSON(), cors({
