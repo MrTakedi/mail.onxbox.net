@@ -40,7 +40,8 @@ export default {
 			"date": email.date
 		}
 
-		await env.POST_DB.put(key, JSON.stringify(data), {expirationTtl: 7200})
+		//await env.POST_DB.put(key, JSON.stringify(data), {expirationTtl: 7200})
+		await env.POST_DB.put(key, JSON.stringify(data))
 	},
 };
   
