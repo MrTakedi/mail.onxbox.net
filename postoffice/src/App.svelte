@@ -16,7 +16,12 @@
   let reloadActive = true
   if(typeof aT !== 'undefined')
   {
-    jQuery.getJSON('https://graph.onxbox.co/me?access_token='+aT, function(json){
+    jQuery.ajax({
+         url: "https://graph.onxbox.co/me",
+         data: "",
+         type: "GET",
+         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer '+aT);},
+         success: function(json){
     if(typeof json.email !== "undefined")
       {
         receivingEmail = json.email;
@@ -33,7 +38,7 @@
       //onXboxAuth();
       //localStorage.getItem("receivingEmail")
       };
-    });
+      });
   }
   else
   {
