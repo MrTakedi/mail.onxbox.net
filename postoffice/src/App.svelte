@@ -126,9 +126,11 @@
               <p id="signed-out">
               <a href="https://auth.onxbox.net">Login</a>
               </p>
+              <br />
               <p id="signed-in">
               Hello there, <span id="login"></span>. (<a href=".">Logout</a>)
               </p>
+              <br />
               <p id="loading">
               Loading...
               </p>
