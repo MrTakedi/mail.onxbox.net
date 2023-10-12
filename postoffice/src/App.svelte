@@ -92,18 +92,14 @@
           if (result.error) {
             return alert(JSON.stringify(result, null, 2));
           }
-          if (localStorage.getItem("accessToken") === null)
-          {
-            localStorage.setItem("accessToken", ${result.token});
-          }
-          else
-          {};
+          
           // token can now be used to send authenticated requests against https://graph.onxbox.co
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
             headers: {
               authorization: `Bearer ${result.token}`
             }
           });
+          localStorage.setItem("accessToken", ${result.token});
           const { login } = await getUserResponse.json();
           mylogin.textContent = login;
           document.body.dataset.state = "signed-in";
