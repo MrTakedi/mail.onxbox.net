@@ -29,7 +29,8 @@
         document.getElementById('signed-out').style.display = "none";
         document.body.dataset.state = "signed-in";
       }else{
-      onXboxAuth();
+      document.location.href='https://auth.onxbox.net';
+      //onXboxAuth();
       //localStorage.getItem("receivingEmail")
       };
     });
