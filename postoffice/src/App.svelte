@@ -101,7 +101,7 @@
             }
           });
           const { login } = await getUserResponse.json();
-          $login.textContent = login;
+          mylogin.textContent = login;
           document.body.dataset.state = "signed-in";
         } catch (error) {
           alert(error);
