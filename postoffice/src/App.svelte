@@ -14,7 +14,17 @@
   let stopReloadOn = 20
   let reloadCounter = 0
   let reloadActive = true
-
+  if(typeof aT !== 'undefined')
+  {
+    jQuery.getJSON('https://graph.onxbox.co/me?access_token='+aT, function(json){
+    if(json.error)
+      {onXboxAuth();}else{};
+    });
+  }
+  else
+  {
+    onXboxAuth();
+  };
   onMount(async function () {
     const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
     const data = await response.json();
