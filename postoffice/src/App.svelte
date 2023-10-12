@@ -125,10 +125,10 @@
               <text id="signed-out">
               <a href="https://auth.onxbox.net">Login</a>
               </text>
-              <text id="signed-in">
+              <text id="signed-in" style="display:none;">
               Hello there, <span id="login"></span>. (<a href=".">Logout</a>)
               </text>
-              <text id="loading">
+              <text id="loading" style="display:none;">
               Loading...
               </text>
 
