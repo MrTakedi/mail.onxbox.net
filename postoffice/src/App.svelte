@@ -96,8 +96,8 @@
           // token can now be used to send authenticated requests against https://api.github.com
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
             headers: {
-              accept: "application/vnd.json",
-              authorization: `token ${result.token}`
+              accept: "application/json",
+              authorization: `Bearer ${result.token}`
             }
           });
           const { login } = await getUserResponse.json();
