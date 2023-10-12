@@ -154,7 +154,7 @@
               </p>
               <!--/sse-->
             </div>
-            <div style="padding: 10px 30px; border: 1px solid rgb(206, 207, 208); border-radius: 10px; margin-top: 16px;">
+            <div style="display:none; padding: 10px 30px; border: 1px solid rgb(206, 207, 208); border-radius: 10px; margin-top: 16px;">
               <p class="text-center" style="margin-bottom: 2px; font-weight: bold; font-size: 12px; color: rgb(153, 153, 153); letter-spacing: 1px;">
                 CHANGE DOMAIN<span class="fw-semibold" style="margin-left: 5px; padding: 1px 4px; background: #5ab34b; border-radius: 5px; border-style: none; color: rgb(255, 255, 255); letter-spacing: 0px;">SOON</span>
               </p>
@@ -170,7 +170,7 @@
             </div>
             <!-- This function is needed (on:click={() => handleClick("arg1", "arg2")}) as on:click={function} would instantly excecute the function -->
             <!-- https://stackoverflow.com/a/61025286/10415189 -->
-            <button class="btn btn-primary" type="button" on:click={() => generateEmail(true)} style="width: 100%; border-radius: 10px; background: rgb(90, 179, 75); padding: 10px 30px; margin-bottom: 6px; border: 1px solid rgb(90, 179, 75);">
+            <button style="display:none;" class="btn btn-primary" type="button" on:click={() => generateEmail(true)} style="width: 100%; border-radius: 10px; background: rgb(90, 179, 75); padding: 10px 30px; margin-bottom: 6px; border: 1px solid rgb(90, 179, 75);">
               <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 18px; margin-bottom: 3px; margin-right: 5px;">
                 <path
                   d="M3 8L10.8906 13.2604C11.5624 13.7083 12.4376 13.7083 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z"
