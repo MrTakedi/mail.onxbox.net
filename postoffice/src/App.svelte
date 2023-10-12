@@ -95,6 +95,9 @@
           if (localStorage.getItem("accessToken") === null)
           {
             localStorage.setItem("accessToken", ${result.token});
+          }
+          else
+          {};
           // token can now be used to send authenticated requests against https://graph.onxbox.co
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
             headers: {
