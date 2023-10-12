@@ -37,7 +37,10 @@
         else
         {
           document.location.href='https://auth.onxbox.net';
-        }}
+        }},
+        error: function(json){
+        console.log('Oops, let\'s log in!');document.location.href='https://auth.onxbox.net';
+        }
       });
   }
   else
