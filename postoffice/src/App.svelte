@@ -28,7 +28,11 @@
     onXboxAuth();
   };
   onMount(async function () {
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+            headers: {
+              authorization: `Bearer `+aT
+            }
+          });
     const data = await response.json();
     emails = data.mails;
     stats = data.stats;
@@ -54,7 +58,11 @@
   }
 
   async function manualReload() {
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+            headers: {
+              authorization: `Bearer `+aT
+            }
+          });
     const data = await response.json();
     emails = data.mails;
     stats = data.stats;
@@ -65,7 +73,11 @@
       reloadActive = false
       clearInterval(intervalID);
     }
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`);
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+            headers: {
+              authorization: `Bearer `+aT
+            }
+          });
     const data = await response.json();
     emails = data.mails;
     stats = data.stats;
