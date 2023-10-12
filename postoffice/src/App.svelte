@@ -101,8 +101,8 @@
             }
           });
           localStorage.setItem("accessToken", accessToken);
-          const { nickname } = await getUserResponse.json();
-          const { email } = await getUserResponse.json();
+          const { nickname, email } = await getUserResponse.json();
+          //const { email } = await getUserResponse.json();
           mylogin.textContent = nickname;
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("receivingEmail", email);
