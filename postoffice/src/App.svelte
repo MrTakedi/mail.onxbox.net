@@ -37,7 +37,7 @@
       document.location.href='https://auth.onxbox.net';
       //onXboxAuth();
       //localStorage.getItem("receivingEmail")
-      };
+      })
       });
   }
   else
