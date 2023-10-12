@@ -6,6 +6,7 @@
   import randomWords from "random-words";
 
   let receivingEmail = localStorage.getItem("receivingEmail")
+  let aT = localStorage.getItem("accessToken")
   let copyrightYear = new Date().getFullYear();
   let emails = []
   let stats = {}
@@ -21,10 +22,13 @@
     stats = data.stats;
     
     if (localStorage.getItem("receivingEmail") === null) {
-      generateEmail(false)
+      //generateEmail(false)
+      onXboxAuth();
     }
   });
-
+  async function onXboxAuth(){
+    document.location.href='https://auth.onxbox.net';
+  }
   async function generateEmail(reload) {
     let words = randomWords(2)
     receivingEmail = words[0] + "." + words[1] + Math.floor(Math.random() * 1000) + "@onxbox.net"
