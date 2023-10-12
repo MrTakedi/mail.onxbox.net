@@ -94,7 +94,7 @@
           }
           
           // token can now be used to send authenticated requests against https://graph.onxbox.co
-          const accessToken = ${result.token};
+          const accessToken = `${result.token}`;
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
             headers: {
               authorization: `Bearer `+accessToken
