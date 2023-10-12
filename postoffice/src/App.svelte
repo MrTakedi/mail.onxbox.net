@@ -17,9 +17,20 @@
   if(typeof aT !== 'undefined')
   {
     jQuery.getJSON('https://graph.onxbox.co/me?access_token='+aT, function(json){
-    if(json.error == "invalid_token")
-      {onXboxAuth();}else{
-      receivingEmail = json.email;//localStorage.getItem("receivingEmail")
+    if(typeof json.email !== "undefined")
+      {
+        receivingEmail = json.email;
+        localStorage.setItem("accessToken", aT);
+        localStorage.setItem("receivingEmail", json.email);
+        document.getElementById('login').innerHTML = json.nickname;
+        document.getElementById('signed-in').style.display = "block";
+        document.getElementById('signed-in').style = "display:block;";
+        document.getElementById('signed-out').style = "display:none;"
+        document.getElementById('signed-out').style.display = "none";
+        document.body.dataset.state = "signed-in";
+      }else{
+      onXboxAuth();
+      //localStorage.getItem("receivingEmail")
       };
     });
   }
