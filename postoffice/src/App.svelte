@@ -14,7 +14,21 @@
   let stopReloadOn = 20
   let reloadCounter = 0
   let reloadActive = true
-  if(typeof aT !== 'undefined')
+  onMount(async function () {
+    /*const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+            headers: {
+              authorization: `Bearer `+aT
+            }
+          });
+    const data = await response.json();
+    emails = data.mails;
+    stats = data.stats;
+    
+    if (localStorage.getItem("receivingEmail") === null) {
+      //generateEmail(false)
+      onXboxAuth();
+    }*/
+if(typeof aT !== 'undefined')
   {
     jQuery.ajax({
          url: "https://graph.onxbox.co/me",
@@ -33,6 +47,14 @@
             document.getElementById('signed-out').style = "display:none;"
             document.getElementById('signed-out').style.display = "none";
             document.body.dataset.state = "signed-in";
+            const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+            headers: {
+              authorization: `Bearer `+aT
+            }
+            });
+          const data = await response.json();
+          emails = data.mails;
+          stats = data.stats;
         }
         else
         {
@@ -47,20 +69,6 @@
   {
     document.location.href='https://auth.onxbox.net';
   };
-  onMount(async function () {
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
-            headers: {
-              authorization: `Bearer `+aT
-            }
-          });
-    const data = await response.json();
-    emails = data.mails;
-    stats = data.stats;
-    
-    if (localStorage.getItem("receivingEmail") === null) {
-      //generateEmail(false)
-      onXboxAuth();
-    }
   });
   async function onXboxAuth(){
     document.location.href='https://auth.onxbox.net';
