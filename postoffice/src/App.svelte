@@ -22,27 +22,27 @@
          type: "GET",
          beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer '+aT);},
          success: function(json){
-    if(typeof json.email !== "undefined")
-      {
-        receivingEmail = json.email;
-        localStorage.setItem("accessToken", aT);
-        localStorage.setItem("receivingEmail", json.email);
-        document.getElementById('login').innerHTML = json.nickname;
-        document.getElementById('signed-in').style.display = "block";
-        document.getElementById('signed-in').style = "display:block;";
-        document.getElementById('signed-out').style = "display:none;"
-        document.getElementById('signed-out').style.display = "none";
-        document.body.dataset.state = "signed-in";
-      }else{
-      document.location.href='https://auth.onxbox.net';
-      //onXboxAuth();
-      //localStorage.getItem("receivingEmail")
-      })
+          if(typeof json.email !== "undefined")
+          {
+            receivingEmail = json.email;
+            localStorage.setItem("accessToken", aT);
+            localStorage.setItem("receivingEmail", json.email);
+            document.getElementById('login').innerHTML = json.nickname;
+            document.getElementById('signed-in').style.display = "block";
+            document.getElementById('signed-in').style = "display:block;";
+            document.getElementById('signed-out').style = "display:none;"
+            document.getElementById('signed-out').style.display = "none";
+            document.body.dataset.state = "signed-in";
+        }
+        else
+        {
+          document.location.href='https://auth.onxbox.net';
+        })
       });
   }
   else
   {
-    onXboxAuth();
+    document.location.href='https://auth.onxbox.net';
   };
   onMount(async function () {
     const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
