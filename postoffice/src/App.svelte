@@ -101,8 +101,16 @@
             }
           });
           localStorage.setItem("accessToken", accessToken);
-          const { login } = await getUserResponse.json();
-          mylogin.textContent = login;
+          const { nickname } = await getUserResponse.json();
+          const { email } = await getUserResponse.json();
+          mylogin.textContent = nickname;
+          localStorage.setItem("accessToken", accessToken);
+          localStorage.setItem("receivingEmail", email);
+          document.getElementById('login').nickname;
+          document.getElementById('signed-in').style.display = "block";
+          document.getElementById('signed-in').style = "display:block;";
+          document.getElementById('signed-out').style = "display:none;"
+          document.getElementById('signed-out').style.display = "none";
           document.body.dataset.state = "signed-in";
         } catch (error) {
           alert(error);
