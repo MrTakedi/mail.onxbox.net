@@ -103,10 +103,10 @@
           localStorage.setItem("accessToken", accessToken);
           const { nickname, email } = await getUserResponse.json();
           //const { email } = await getUserResponse.json();
-          mylogin.innerHTML = nickname;
+          //mylogin.innerHTML = nickname;
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("receivingEmail", email);
-          document.getElementById('login').nickname;
+          document.getElementById('login').innerHTML = nickname;
           document.getElementById('signed-in').style.display = "block";
           document.getElementById('signed-in').style = "display:block;";
           document.getElementById('signed-out').style = "display:none;"
