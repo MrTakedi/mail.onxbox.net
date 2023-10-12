@@ -62,7 +62,7 @@
 
       const WORKER_URL = "https://auth.onxbox.net";
       const code = new URL(location.href).searchParams.get("code");
-      const $login = document.querySelector("#login");
+      const mylogin = document.querySelector("#login");
 
       if (code) {
         login(code);
