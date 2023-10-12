@@ -123,17 +123,15 @@
             <p style="margin-bottom: 32px;">
               <span style="color: rgb(153, 153, 153);">Free email, no ads! </span><br />
               <br />
-              <p id="signed-out">
+              <text id="signed-out">
               <a href="https://auth.onxbox.net">Login</a>
-              </p>
-              <br />
-              <p id="signed-in">
+              </text>
+              <text id="signed-in">
               Hello there, <span id="login"></span>. (<a href=".">Logout</a>)
-              </p>
-              <br />
-              <p id="loading">
+              </text>
+              <text id="loading">
               Loading...
-              </p>
+              </text>
 
             </p>
             <div />
