@@ -47,6 +47,7 @@ if(typeof aT !== 'undefined')
             document.getElementById('signed-out').style = "display:none;"
             document.getElementById('signed-out').style.display = "none";
             document.body.dataset.state = "signed-in";
+            async function () {
             const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
             headers: {
               authorization: `Bearer `+aT
@@ -54,7 +55,7 @@ if(typeof aT !== 'undefined')
             });
           const data = await response.json();
           emails = data.mails;
-          stats = data.stats;
+          stats = data.stats;};
         }
         else
         {
