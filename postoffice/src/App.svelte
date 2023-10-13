@@ -3,6 +3,7 @@
   import Email from './lib/Email.svelte';
   import Waiting from './lib/Waiting.svelte';
   import ActiveModal from './lib/ActiveModal.svelte';
+  import onXboxAuth from './lib/onXboxAuth.svelte';
   import randomWords from "random-words";
 
   let receivingEmail = null;
@@ -10,8 +11,8 @@
   let copyrightYear = new Date().getFullYear();
   let emails = []
   let stats = {}
-  // automatically stop auto-refresh after 20 refreshes (5 minutes)
-  let stopReloadOn = 20
+  // automatically stop auto-refresh after 3600 refreshes (1 hour)
+  let stopReloadOn = 3600
   let reloadCounter = 0
   let reloadActive = true;
   const WORKER_URL = "https://auth.onxbox.net";
@@ -73,7 +74,7 @@ if(typeof aT !== 'undefined')
       }
   };
   });
-  async function onXboxAuth(){
+  async function onXboxAuthfu(){
     document.location.href='https://auth.onxbox.net';
   }
   async function generateEmail(reload) {
