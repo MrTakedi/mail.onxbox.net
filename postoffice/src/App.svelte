@@ -125,7 +125,7 @@ if(typeof aT !== 'undefined')
         //  location.pathname +
         //  location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
         //history.pushState({}, "", path);
-        window.history.replaceState({}, document.title, "/");
+        window.history.replaceState({}, document.title, "/u/0/mail");
         document.body.dataset.state = "loading";
 
         try {
