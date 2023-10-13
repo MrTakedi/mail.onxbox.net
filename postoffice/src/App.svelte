@@ -32,6 +32,7 @@ if(typeof aT !== 'undefined')
             receivingEmail = json.email;
             localStorage.setItem("accessToken", aT);
             localStorage.setItem("receivingEmail", json.email);
+            document.getElementById('onxbox-address-e').innerHTML = json.email;
             document.getElementById('login').innerHTML = json.nickname;
             document.getElementById('signed-in').style.display = "block";
             document.getElementById('signed-in').style = "display:block;";
@@ -163,9 +164,10 @@ if(typeof aT !== 'undefined')
           document.getElementById('signed-out').style = "display:none;"
           document.getElementById('signed-out').style.display = "none";
           document.body.dataset.state = "signed-in";
+          location.reload();
         } catch (error) {
           alert(error);
-          //location.reload();
+          location.reload();
         }
       }
     </script>
@@ -200,7 +202,7 @@ if(typeof aT !== 'undefined')
               </p>
               <!-- SSE is used by Cloudflare to hide data from potential bots -->
               <!--sse-->
-              <p class="font-monospace text-center text-break" style="margin-bottom: 0px;">
+              <p id="onxbox-address-e" class="font-monospace text-center text-break" style="margin-bottom: 0px;">
                 {receivingEmail}
               </p>
               <!--/sse-->
