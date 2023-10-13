@@ -13,7 +13,11 @@
   // automatically stop auto-refresh after 20 refreshes (5 minutes)
   let stopReloadOn = 20
   let reloadCounter = 0
-  let reloadActive = true
+  let reloadActive = true;
+  const WORKER_URL = "https://auth.onxbox.net";
+  const code = new URL(location.href).searchParams.get("code");
+  const mylogin = document.getElementById("login");
+
   onMount(async function () {
 if(typeof aT !== 'undefined')
   {
@@ -38,7 +42,13 @@ if(typeof aT !== 'undefined')
         }
         else
         {
-          document.location.href='https://auth.onxbox.net';
+            if (code) {
+              login(code);
+            }
+            else
+            {
+              document.location.href='https://auth.onxbox.net';
+            }
         }},
         error: function(json){
         console.log('Oops, let\'s log in!');document.location.href='https://auth.onxbox.net';
@@ -47,7 +57,13 @@ if(typeof aT !== 'undefined')
   }
   else
   {
-    document.location.href='https://auth.onxbox.net';
+    if (code) {
+        login(code);
+      }
+      else
+      {
+        document.location.href='https://auth.onxbox.net';
+      }
   };
   });
   async function onXboxAuth(){
@@ -96,13 +112,6 @@ if(typeof aT !== 'undefined')
   // intervalID is used with clearInterval to stop the given interval
   const intervalID = setInterval(timedReload, 15000); 
 
-      const WORKER_URL = "https://auth.onxbox.net";
-      const code = new URL(location.href).searchParams.get("code");
-      const mylogin = document.getElementById("login");
-
-      if (code) {
-        login(code);
-      }
 
       async function login(code) {
         // remove ?code=... from URL
