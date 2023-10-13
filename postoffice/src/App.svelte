@@ -51,7 +51,13 @@ if(typeof aT !== 'undefined')
             }
         }},
         error: function(json){
-        console.log('Oops, let\'s log in!');document.location.href='https://auth.onxbox.net';
+        if (code) {
+              login(code);
+            }
+            else
+            {
+              console.log('Oops, let\'s log in!');document.location.href='https://auth.onxbox.net';
+            }
         }
       });
   }
