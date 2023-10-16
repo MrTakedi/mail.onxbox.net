@@ -96,13 +96,13 @@
           <p class="fs-5 fw-semibold" style="margin-bottom: 10px;">
             <span style="background-color: rgba(255, 255, 255, 0);">{email.subject}</span>
           </p>
-          <div class="text-break">
+          <!-- <div class="text-break"> -->
             <!-- {@html email["content-html"]} -->
-	{@html email["content-html"]}
+	<!-- {@html email["content-html"]} -->
             <!-- {@html email["content-plain-formatted"]} -->
-          </div>
-	<div class="text-break" style="display:none;">
-	{@html email["content-b64"]}
+          <!-- </div> -->
+	<div class="text-break">
+		<iframe style='position:absolute;top:0px;width:100%;height:100vh;' src='data:text/html;charset=utf-8;base64,{@html email["content-b64"]}'>{@html email["content-plain-formatted"]}</iframe>
         </div>
         <div style="padding: 5px 20px; background: #f4f4f4; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
           <!--sse-->
