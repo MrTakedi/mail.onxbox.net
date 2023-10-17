@@ -102,7 +102,7 @@
             <!-- {@html email["content-plain-formatted"]} -->
           <!-- </div> -->
 	<div class="text-break">
-		{@html email["content-b64"]}
+		{@html email["content-html"]}
         </div>
         <div style="padding: 5px 20px; background: #f4f4f4; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
           <!--sse-->
