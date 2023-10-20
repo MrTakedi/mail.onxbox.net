@@ -11,7 +11,11 @@
   async function deleteEmail() {
     if (confirm("Do you really want to permanently delete this email?")) {
       let emailKey = email.recipient + "-" + email.suffix
-      const response = await fetch(`https://postmaster.onxbox.net/delete/mail?key=${emailKey}`);
+      const response = await fetch(`https://postmaster.onxbox.net/delete/mail?key=${emailKey}`, {
+            headers: {
+              authorization: `Bearer `+aT
+            }
+          });
       const data = await response.json();
       
       if (data.code === 200) {
