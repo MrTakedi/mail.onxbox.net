@@ -1,6 +1,6 @@
 <script>
 	export let email;
-
+let accessToken = localStorage.getItem("accessToken");
   function getReadableDate(unixTimestamp) {
     const milliseconds = unixTimestamp * 1000 
     const dateObject = new Date(milliseconds)
@@ -13,7 +13,7 @@
       let emailKey = email.recipient + "-" + email.suffix
       const response = await fetch(`https://postmaster.onxbox.net/delete/mail?key=${emailKey}`, {
             headers: {
-              authorization: `Bearer `+aT
+              authorization: `Bearer `+accessToken
             }
           });
       const data = await response.json();
