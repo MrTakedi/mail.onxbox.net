@@ -21,6 +21,9 @@
   const mylogin = document.getElementById("login");
 
   onMount(async function () {
+    const responseX = await fetch(`https://postmaster.onxbox.net/v1/stats`);
+    const dataX = await responseX.json();
+    stats = dataX.stats;
 if(typeof aT !== 'undefined')
   {
     jQuery.ajax({
