@@ -128,6 +128,7 @@ if(typeof aT !== 'undefined')
   // automatic refresh every 10 seconds (in milliseconds)
   // intervalID is used with clearInterval to stop the given interval
   const intervalID = setInterval(timedReload, 15000); 
+  const statsID = setInterval(showGlobalStats, 15000);
 
 
       async function login(code) {
