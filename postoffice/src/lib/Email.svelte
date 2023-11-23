@@ -21,7 +21,7 @@ let accessToken = localStorage.getItem("accessToken");
       if (data.code === 200) {
         // use this instead of window.location.reload(); to avoid resending POST requests
         // @ts-ignore
-        document.location.href = document.location.href+"#?delete=true";
+        document.location.href = document.location.href+"?deleted=true";
       } else {
         console.log(`ERROR - Failed to delete email with request status ${data.code}`)
       }
