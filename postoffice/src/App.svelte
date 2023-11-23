@@ -11,6 +11,7 @@
   let copyrightYear = new Date().getFullYear();
   let emails = []
   let stats = {}
+  let mystats = {}
   // automatically stop auto-refresh after 3600 refreshes (1 hour)
   let stopReloadOn = 3600
   let reloadCounter = 0
@@ -89,7 +90,11 @@ if(typeof aT !== 'undefined')
       document.location.href = document.location.href;
     }
   }
-
+  async function showGlobalStats() {
+    const response = await fetch(`https://postmaster.onxbox.net/v1/stats`);
+    const data = await response.json();
+    stats = data.stats;
+  }
   async function manualReload() {
     const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
             headers: {
@@ -98,7 +103,7 @@ if(typeof aT !== 'undefined')
           });
     const data = await response.json();
     emails = data.mails;
-    stats = data.stats;
+    mystats = data.stats;
   }
 
   async function timedReload() {
@@ -113,7 +118,7 @@ if(typeof aT !== 'undefined')
           });
     const data = await response.json();
     emails = data.mails;
-    stats = data.stats;
+    mystats = data.stats;
     reloadCounter += 1
   }
 
@@ -263,7 +268,8 @@ if(typeof aT !== 'undefined')
                 }, 1000); // set the timeout to the same duration as the animation
               });
             </script>
-            <p style="margin-top: 100px; color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{stats.count}</span>&nbsp;emails received globally.</p>
+            <p style="margin-top: 100px; color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{stats.count}</span>&nbsp; in your inbox.</p>
+            <p style="margin-top: 100px; color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{mystats.count}</span>&nbsp;emails received globally.</p>
             <ul class="list-inline text-start" style="margin-bottom: 0px; margin-top: 0px; font-size: 12px; color: rgb(164, 164, 164);">
               <li class="list-inline-item">
                 <a href="https://berrysauce.me/terms" target="_blank" rel="noreferrer" style="color: inherit;">Terms of Service</a>
