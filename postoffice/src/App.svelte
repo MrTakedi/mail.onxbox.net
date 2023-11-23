@@ -268,8 +268,8 @@ if(typeof aT !== 'undefined')
                 }, 1000); // set the timeout to the same duration as the animation
               });
             </script>
-            <p style="margin-top: 100px; color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{stats.count}</span>&nbsp; in your inbox.</p>
-            <p style="margin-top: 100px; color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{mystats.count}</span>&nbsp;emails received globally.</p>
+            <p style="margin-top: 100px; color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{mystats.count}</span>&nbsp; in your inbox.</p>
+            <p style="color: rgb(164, 164, 164); font-size: 14px;"><span class="font-monospace" style="color: rgb(90, 179, 75);">{stats.count}</span>&nbsp;emails received globally.</p>
             <ul class="list-inline text-start" style="margin-bottom: 0px; margin-top: 0px; font-size: 12px; color: rgb(164, 164, 164);">
               <li class="list-inline-item">
                 <a href="https://berrysauce.me/terms" target="_blank" rel="noreferrer" style="color: inherit;">Terms of Service</a>
