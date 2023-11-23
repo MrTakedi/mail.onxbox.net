@@ -85,7 +85,8 @@ if(typeof aT !== 'undefined')
     if (reload) {
       // use this instead of window.location.reload(); to avoid resending POST requests
       // @ts-ignore
-      window.location = window.location.href;
+      //window.location = window.location.href;
+      document.location.href = document.location.href;
     }
   }
 
@@ -213,7 +214,7 @@ if(typeof aT !== 'undefined')
                 CHANGE DOMAIN<span class="fw-semibold" style="margin-left: 5px; padding: 1px 4px; background: #5ab34b; border-radius: 5px; border-style: none; color: rgb(255, 255, 255); letter-spacing: 0px;">SOON</span>
               </p>
               <select style="width: 100%; background: rgba(255, 255, 255, 0); border-style: none; text-align: center;" disabled>
-                <option value="junk.boats">junk.boats</option>
+                <option value="onxbox.net">onxbox.net</option>
               </select>
             </div>
             <div style="padding: 10px 30px; border: 1px solid rgb(206, 207, 208); border-radius: 10px; margin-bottom: 16px; margin-top: 16px;">
@@ -274,7 +275,7 @@ if(typeof aT !== 'undefined')
                 <a href="https://github.com/berrysauce/junk.boats/blob/main/LICENSE" target="_blank" rel="noreferrer" style="color: inherit;">License</a>
               </li>
               <li class="list-inline-item">
-                <a href="https://github.com/berrysauce/junk.boats" target="_blank" rel="noreferrer" style="color: inherit;">Star/Contribute on GitHub</a>
+                <a href="https://github.com/MrTakedi/mail.onxbox.net" target="_blank" rel="noreferrer" style="color: inherit;">Star/Contribute on GitHub</a>
               </li>
               <li class="list-inline-item">
                 <a href="https://ko-fi.com/berrysauce" target="_blank" rel="noreferrer" style="color: inherit;">Donate</a>
@@ -297,6 +298,10 @@ if(typeof aT !== 'undefined')
         <div class="col-md-12 col-lg-7 col-xxl-8" style="padding-right: 12px; padding-left: 12px;">
 
           {#if reloadActive === false}
+            <ActiveModal/>
+          {/if}
+
+          {#if onXboxAuth === false}
             <ActiveModal/>
           {/if}
 
