@@ -10,8 +10,8 @@
   let aT = localStorage.getItem("accessToken")
   let copyrightYear = new Date().getFullYear();
   let emails = []
-  let stats = {}
-  let mystats = {}
+  let stats = {count:0}
+  let mystats = {count:0}
   // automatically stop auto-refresh after 3600 refreshes (1 hour)
   let stopReloadOn = 3600
   let reloadCounter = 0
