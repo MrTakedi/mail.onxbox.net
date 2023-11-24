@@ -100,7 +100,7 @@ if(typeof aT !== 'undefined')
   }
   async function manualReload() {
     //const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
-      const response = await fetch(`https://postmaster.onxbox.net/get/mail`, {
+      const response = await fetch(`https://postmaster.onxbox.net/api/v1/inbox`, {
             headers: {
               authorization: `Bearer `+aT
             }
@@ -115,7 +115,7 @@ if(typeof aT !== 'undefined')
       reloadActive = false
       clearInterval(intervalID);
     }
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail`, {
+    const response = await fetch(`https://postmaster.onxbox.net/api/v1/inbox`, {
             headers: {
               authorization: `Bearer `+aT
             }
@@ -138,7 +138,7 @@ if(typeof aT !== 'undefined')
         //  location.pathname +
         //  location.search.replace(/\bcode=\w+/, "").replace(/\?$/, "");
         //history.pushState({}, "", path);
-        window.history.replaceState({}, document.title, "/u/0/mail");
+        window.history.replaceState({}, document.title, "/mail/u/0/");
         document.body.dataset.state = "loading";
 
         try {
