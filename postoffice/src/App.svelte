@@ -99,7 +99,8 @@ if(typeof aT !== 'undefined')
     stats = data.stats;
   }
   async function manualReload() {
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+    //const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+      const response = await fetch(`https://postmaster.onxbox.net/get/mail`, {
             headers: {
               authorization: `Bearer `+aT
             }
@@ -114,7 +115,7 @@ if(typeof aT !== 'undefined')
       reloadActive = false
       clearInterval(intervalID);
     }
-    const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
+    const response = await fetch(`https://postmaster.onxbox.net/get/mail`, {
             headers: {
               authorization: `Bearer `+aT
             }
