@@ -100,7 +100,7 @@ if(typeof aT !== 'undefined')
   }
   async function manualReload() {
     //const response = await fetch(`https://postmaster.onxbox.net/get/mail?address=${receivingEmail}`, {
-      const response = await fetch(`https://postmaster.onxbox.net/api/v1/inbox`, {
+      const response = await fetch(`https://graph.onxbox.co/mail/api/v1/inbox`, {
             headers: {
               authorization: `Bearer `+aT
             }
@@ -115,7 +115,7 @@ if(typeof aT !== 'undefined')
       reloadActive = false
       clearInterval(intervalID);
     }
-    const response = await fetch(`https://postmaster.onxbox.net/api/v1/inbox`, {
+    const response = await fetch(`https://graph.onxbox.co/mail/api/v1/inbox`, {
             headers: {
               authorization: `Bearer `+aT
             }
