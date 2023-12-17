@@ -223,7 +223,7 @@ if(typeof aT !== 'undefined')
               <a href="https://auth.onxbox.net">Login</a>
               </text>
               <text id="signed-in" style="display:none;">
-              <span id="avatar"></span>
+              <span id="avatar"></span><br>
               Hello there, <span id="login"></span>. (<a href="https://account.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>)
               </text>
               <text id="loading" style="display:none;">
