@@ -34,9 +34,21 @@ if(typeof aT !== 'undefined')
          success: function(json){
           if(typeof json.email !== "undefined")
           {
+            function createImage(e, src, nickname) {
+            var x = document.createElement("img");
+            x.setAttribute("src", src);
+            x.setAttribute("height", "80");
+            x.setAttribute("width", "80");
+            x.setAttribute("alt", nickname);
+            x.setAttribute("title", nickname);
+            document.getElementById(e).appendChild(x);
+            }
             receivingEmail = json.email;
             localStorage.setItem("accessToken", aT);
             localStorage.setItem("receivingEmail", json.email);
+            localStorage.setItem("pfp", json.picture);
+            localStorage.setItem("userID", json.id);
+            createImage('avatar', json.picture, json.nickname);
             document.getElementById('onxbox-address-e').innerHTML = json.email;
             document.getElementById('login').innerHTML = json.nickname;
             document.getElementById('signed-in').style.display = "block";
