@@ -224,9 +224,9 @@ if(typeof aT !== 'undefined')
               <a href="https://auth.onxbox.net">Login</a>
               </text>
               <text id="signed-in" style="display:none;">
-              <div class="card" style="width: 18rem;">
+              <div class="card">
   <span id="avatar"></span>
-  <div class="card-body" style="padding: 10px 30px; border: 1px solid rgb(206, 207, 208); border-radius: 10px; margin-top: 32px;">
+  <div class="card-body">
     <h5 class="card-title">Hello there, <span id="login"></span></h5>
     <p class="card-text">You'll soon be able to reply to emails and manage them better with an updated and refreshed interface.</p>
     <a class="btn btn-primary" href="https://account.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>
