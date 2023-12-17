@@ -36,9 +36,10 @@ if(typeof aT !== 'undefined')
           {
             function createImage(e, src, nickname) {
             var x = document.createElement("img");
+            x.setAttribute("class", "img-fluid img-thumbnail rounded");
             x.setAttribute("src", src);
-            x.setAttribute("height", "80");
-            x.setAttribute("width", "80");
+            x.setAttribute("height", "50");
+            x.setAttribute("width", "50");
             x.setAttribute("alt", nickname);
             x.setAttribute("title", nickname);
             document.getElementById(e).appendChild(x);
