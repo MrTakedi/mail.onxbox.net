@@ -156,7 +156,15 @@ if(typeof aT !== 'undefined')
           if (result.error) {
             return alert(JSON.stringify(result, null, 2));
           }
-          
+          function createImage(e, src, nickname) {
+            var x = document.createElement("img");
+            x.setAttribute("src", src);
+            x.setAttribute("height", "80");
+            x.setAttribute("width", "80");
+            x.setAttribute("alt", nickname);
+            x.setAttribute("title", nickname);
+            document.getElementById(e).appendChild(x);
+        }
           // token can now be used to send authenticated requests against https://graph.onxbox.co
           const accessToken = `${result.token}`;
           const getUserResponse = await fetch("https://graph.onxbox.co/me", {
@@ -165,17 +173,20 @@ if(typeof aT !== 'undefined')
             }
           });
           localStorage.setItem("accessToken", accessToken);
-          const { nickname, email } = await getUserResponse.json();
+          const { nickname, email, picture, id } = await getUserResponse.json();
           //const { email } = await getUserResponse.json();
           //mylogin.innerHTML = nickname;
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("receivingEmail", email);
+          localStorage.setItem("pfp", picture);
+          localStorage.setItem("userID", id);
           document.getElementById('login').innerHTML = nickname;
           document.getElementById('signed-in').style.display = "block";
           document.getElementById('signed-in').style = "display:block;";
           document.getElementById('signed-out').style = "display:none;"
           document.getElementById('signed-out').style.display = "none";
           document.body.dataset.state = "signed-in";
+          createImage('avatar', picture, nickname);
           location.reload();
         } catch (error) {
           alert(error);
@@ -200,6 +211,7 @@ if(typeof aT !== 'undefined')
               <a href="https://auth.onxbox.net">Login</a>
               </text>
               <text id="signed-in" style="display:none;">
+              <span id="avatar"></span>
               Hello there, <span id="login"></span>. (<a href="https://account.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>)
               </text>
               <text id="loading" style="display:none;">
