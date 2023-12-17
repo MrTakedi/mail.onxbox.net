@@ -36,10 +36,10 @@ if(typeof aT !== 'undefined')
           {
             function createImage(e, src, nickname) {
             var x = document.createElement("img");
-            x.setAttribute("class", "img-fluid img-thumbnail rounded");
+            x.setAttribute("class", "card-img-top img-fluid rounded");
             x.setAttribute("src", src);
-            x.setAttribute("height", "50");
-            x.setAttribute("width", "50");
+            x.setAttribute("height", "150");
+            x.setAttribute("width", "150");
             x.setAttribute("alt", nickname);
             x.setAttribute("title", nickname);
             document.getElementById(e).appendChild(x);
@@ -224,8 +224,15 @@ if(typeof aT !== 'undefined')
               <a href="https://auth.onxbox.net">Login</a>
               </text>
               <text id="signed-in" style="display:none;">
-              <span id="avatar"></span><br>
-              Hello there, <span id="login"></span>. (<a href="https://account.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>)
+              <div class="card" style="width: 18rem;">
+  <span id="avatar"></span>
+  <div class="card-body">
+    <h5 class="card-title">Hello there, <span id="login"></span></h5>
+    <p class="card-text">You'll soon be able to reply to emails and manage them better with an updated and refreshed interface.</p>
+    <a class="btn btn-primary" href="https://account.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>
+  </div>
+</div>
+              
               </text>
               <text id="loading" style="display:none;">
               Loading...
