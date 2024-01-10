@@ -229,7 +229,7 @@ if(typeof aT !== 'undefined')
   <div class="card-body">
     <h5 class="card-title">Hello there, <span id="login"></span></h5>
     <p class="card-text">You'll soon be able to reply to emails and manage them better with an updated and refreshed interface.</p>
-    <a class="btn btn-primary" href="https://account.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>
+    <a class="btn btn-primary" href="https://login.onxbox.co/do/logout?wreply=https://mail.onxbox.net" onclick="localStorage.removeItem('accessToken');localStorage.removeItem('receivingEmail');">Logout</a>
   </div>
 </div>
               
